@@ -44,7 +44,7 @@ terraform {
 
 resource "local_file" "greeting" {
   filename = "greeting.txt"
-  content  = "Hello Rashid Bhai! Welcome to TerraWeek Day 01. Ye file Terraform ne banayi hai bina kisi cloud ke!"
+  content  = "Hello Rashid Bhai! Welcome to TerraWeek Day 01."
 }
 ```
 
