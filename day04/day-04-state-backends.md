@@ -1,3 +1,4 @@
+cat << 'EOF' > day-04-state-backends.md
 # TerraWeek Day 4 — State & Remote Backends (Native Locking)
 
 ## Task 1: Why State Matters
@@ -29,7 +30,7 @@ Below are the commands used to inspect and manipulate the state without destroyi
 
 To enable remote state, the S3 bucket must exist prior to initializing the remote backend. A separate localized Terraform configuration (`backend_infra/main.tf`) was utilized to bootstrap this bucket (`terraweek-state-rashid-2026`) with versioning, server-side encryption, and strict public access blocks.
 
-*(Reference: [task-03-bootstrap-bucket.png](task-03-bootstrap-bucket.png))*
+*(Reference: [task-03-bootstrap-bucket.png](screenshots/task-03-bootstrap-bucket.png))*
 
 ## Task 4: Configure the Remote Backend with Native Locking
 
@@ -48,7 +49,7 @@ terraform {
 ```
 Upon executing `terraform init`, the local state was successfully migrated to the secure S3 bucket. Simulating concurrent operations triggered a native lock, verifying that `.tflock` mechanism operates correctly.
 
-*(Reference: [task-04-state-migrated.png](task-04-state-migrated.png) and [task-03-lock-error.png](task-03-lock-error.png))*
+*(Reference: [task-04-state-migrated.png](screenshots/task-04-state-migrated.png) and [task-03-lock-error.png](screenshots/task-03-lock-error.png))*
 
 ## Task 5: Import an Existing Resource
 
@@ -62,4 +63,5 @@ import {
 ```
 Executing `terraform plan -generate-config-out=generated.tf` successfully queried the AWS API and automatically scaffolded the HCL resource code, seamlessly bridging existing cloud assets into IaC management.
 
-*(Reference: [task-04-import-plan.png](task-04-import-plan.png) and [task-04-import-list.png](task-04-import-list.png))*
+*(Reference: [task-04-import-plan.png](screenshots/task-04-import-plan.png) and [task-04-import-list.png](screenshots/task-04-import-list.png))*
+EOF
